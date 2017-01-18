@@ -11,22 +11,33 @@ import AVFoundation
 
 class ScannerViewController: UIViewController, AVCaptureMetadataOutputObjectsDelegate {
     
-    override var prefersStatusBarHidden: Bool {
-        return true
-    }
-    
     var captureSession:AVCaptureSession?
     var videoPreviewLayer:AVCaptureVideoPreviewLayer?
     var barCodeFrameView:UIView?
     var searchResults: [SearchResult] = []
     
-    var companyName = ""
-
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .lightContent
+    }
+    
     @IBOutlet var messageLabel: UILabel!
-    @IBOutlet var messageLabelBackground: UILabel!
-    @IBOutlet var infoButton: UIButton!
-    @IBOutlet var addButton: UIButton!
-    @IBOutlet var navigationBar: UINavigationBar!
+    @IBOutlet var blurEffectView: UIVisualEffectView!
+    @IBOutlet var gridImage: UIImageView!
+    @IBOutlet var gridSwitchButton: UIButton!
+    
+    @IBAction func gridSwitchFunc(sender: UIButton) {
+        if gridImage.isHidden == true {
+            gridImage.isHidden = false
+            gridSwitchButton.setTitle("       GRID ON", for: .normal)
+            print("Button pressed")
+            return
+        } else {
+            gridImage.isHidden = true
+            gridSwitchButton.setTitle("       GRID OFF", for: .normal)
+            print("Button 2 pressed")
+            return
+        }
+    }
     
     let supportedCodeTypes = [AVMetadataObjectTypeUPCECode,
                               AVMetadataObjectTypeCode39Code,
@@ -39,13 +50,14 @@ class ScannerViewController: UIViewController, AVCaptureMetadataOutputObjectsDel
                               AVMetadataObjectTypePDF417Code,
                               AVMetadataObjectTypeQRCode]
     
+    
     override func viewDidLoad() {
         
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-
-        
+    
         // Get an instance of the AVCaptureDevice class to initialize a device object and provide the video as the media type parameter.
+        
         let captureDevice = AVCaptureDevice.defaultDevice(withMediaType: AVMediaTypeVideo)
         
         do {
@@ -73,23 +85,7 @@ class ScannerViewController: UIViewController, AVCaptureMetadataOutputObjectsDel
             view.layer.addSublayer(videoPreviewLayer!)
             
             // Start video capture.
-            captureSession?.startRunning()
-            
-            // Move the message label and top bar to the front
-            view.bringSubview(toFront: messageLabelBackground)
-            view.bringSubview(toFront: messageLabel)
-            view.bringSubview(toFront: navigationBar)
-            view.bringSubview(toFront: infoButton)
-            
-            // Initialize Barcode Frame to highlight the QR code
-            barCodeFrameView = UIView()
-            
-            if let barCodeFrameView = barCodeFrameView {
-                barCodeFrameView.layer.borderColor = UIColor.green.cgColor
-                barCodeFrameView.layer.borderWidth = 2
-                view.addSubview(barCodeFrameView)
-                view.bringSubview(toFront: barCodeFrameView)
-            }
+            startCapture()
             
         } catch {
             // If any error occurs, simply print it out and don't continue any more.
@@ -112,7 +108,7 @@ class ScannerViewController: UIViewController, AVCaptureMetadataOutputObjectsDel
         // Check if the metadataObjects array is not nil and it contains at least one object.
         if metadataObjects == nil || metadataObjects.count == 0 {
             barCodeFrameView?.frame = CGRect.zero
-            messageLabel.text = "No barcode is detected"
+            messageLabel.text = "Looking for a barcode..."
             return
         }
         
@@ -126,23 +122,17 @@ class ScannerViewController: UIViewController, AVCaptureMetadataOutputObjectsDel
             
             if metadataObj.stringValue != nil {
                 decodedBarcode = metadataObj.stringValue
-                
+                messageLabel.text = "Barcode detected! Searching..."
+                self.captureSession?.stopRunning()
+                barCodeFrameView?.frame = CGRect.zero
                 let url = outpanURL(searchText: decodedBarcode)
                 
                 if let jsonString = performOutpanRequest(with: url) {
                     if let jsonDictionary = parse(json: jsonString) {
                         result = parse(dictionary: jsonDictionary)
                         
-                        self.captureSession?.stopRunning()
-                        self.barCodeFrameView?.frame = CGRect.zero
                         alert(searchResult: result)
                         
-                        if result.brand == "" {
-                            messageLabel.text = result.status
-                        } else {
-                        messageLabel.text = result.brand
-                            print(result.brand)
-                        }
                         return
                     }
                 }
@@ -215,7 +205,7 @@ class ScannerViewController: UIViewController, AVCaptureMetadataOutputObjectsDel
     func noInfo() -> SearchResult {
         let searchResult = SearchResult()
         
-        searchResult.status = "This barcode is not in our database."
+        searchResult.status = "This product is not yet in our database."
         
         return  searchResult
     }
@@ -226,7 +216,8 @@ class ScannerViewController: UIViewController, AVCaptureMetadataOutputObjectsDel
             {
                 (alertAction:UIAlertAction!) in
                 
-                self.captureSession?.startRunning()
+                self.startCapture()
+                
             })
         
         if searchResult.brand == "" {
@@ -237,6 +228,7 @@ class ScannerViewController: UIViewController, AVCaptureMetadataOutputObjectsDel
 
             
             alert.addAction(action)
+            self.messageLabel.text = ""
             
             present(alert, animated:true, completion: nil)
         } else {
@@ -247,6 +239,7 @@ class ScannerViewController: UIViewController, AVCaptureMetadataOutputObjectsDel
             let action = UIAlertAction(title: "OK", style: .default, handler: nil)
             
             alert.addAction(action)
+            self.messageLabel.text = ""
             
             present(alert, animated:true, completion:nil)
         }
@@ -263,5 +256,42 @@ class ScannerViewController: UIViewController, AVCaptureMetadataOutputObjectsDel
         let action = UIAlertAction(title: "OK", style: .default, handler: nil)
         alert.addAction(action)
         present(alert, animated: true, completion: nil)
+    }
+    
+    // Function to start new captureSession
+    
+    func startCapture() {
+        // Start video capture.
+        captureSession?.startRunning()
+        
+        // Set status bar
+        
+        
+        // Blur the background of message label
+        let blurEffect = UIBlurEffect(style: UIBlurEffectStyle.light)
+        blurEffectView = UIVisualEffectView(effect: blurEffect)
+        blurEffectView.frame = messageLabel.frame
+        view.addSubview(blurEffectView)
+        
+        // Move the message label and top bar to the front
+        view.bringSubview(toFront: messageLabel)
+        view.bringSubview(toFront: gridSwitchButton)
+        view.bringSubview(toFront: gridImage)
+        gridImage.isHidden = false
+        
+        // Reset barcode frame borders and message label text
+        barCodeFrameView?.bounds = CGRect.zero
+        messageLabel.text = "Looking for a barcode..."
+        
+        // Initialize Barcode Frame to highlight the QR code
+        barCodeFrameView = UIView()
+        
+        if let barCodeFrameView = barCodeFrameView {
+            barCodeFrameView.layer.borderColor = UIColor.green.cgColor
+            barCodeFrameView.layer.borderWidth = 2
+            view.addSubview(barCodeFrameView)
+            view.bringSubview(toFront: barCodeFrameView)
+        }
+
     }
 }

@@ -7,6 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4A0D2AE81E2EAC75006B8D4C /* CameraGuides.png in Resources */ = {isa = PBXBuildFile; fileRef = 4A0D2AE61E2EAC75006B8D4C /* CameraGuides.png */; };
+		4A0D2AE91E2EAC75006B8D4C /* GridIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 4A0D2AE71E2EAC75006B8D4C /* GridIcon.png */; };
+		4A0D2AEB1E2EAD3A006B8D4C /* InfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A0D2AEA1E2EAD3A006B8D4C /* InfoViewController.swift */; };
+		4A0D2AEE1E2EB2F0006B8D4C /* helpIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 4A0D2AEC1E2EB2F0006B8D4C /* helpIcon.png */; };
+		4A0D2AEF1E2EB2F0006B8D4C /* plusIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 4A0D2AED1E2EB2F0006B8D4C /* plusIcon.png */; };
+		4A0D2AF11E2EC704006B8D4C /* smallPlusIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 4A0D2AF01E2EC704006B8D4C /* smallPlusIcon.png */; };
+		4A0D2AF31E2EC76B006B8D4C /* backIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 4A0D2AF21E2EC76B006B8D4C /* backIcon.png */; };
 		4A1E8A0F1E2C04AC000F8C94 /* SearchResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A1E8A0E1E2C04AC000F8C94 /* SearchResult.swift */; };
 		4AD68EA31E2BC67700327FFE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AD68EA21E2BC67700327FFE /* AppDelegate.swift */; };
 		4AD68EA51E2BC67700327FFE /* ScannerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AD68EA41E2BC67700327FFE /* ScannerViewController.swift */; };
@@ -16,8 +23,15 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		4A0D2AE61E2EAC75006B8D4C /* CameraGuides.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = CameraGuides.png; path = Images/CameraGuides.png; sourceTree = "<group>"; };
+		4A0D2AE71E2EAC75006B8D4C /* GridIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = GridIcon.png; path = Images/GridIcon.png; sourceTree = "<group>"; };
+		4A0D2AEA1E2EAD3A006B8D4C /* InfoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InfoViewController.swift; sourceTree = "<group>"; };
+		4A0D2AEC1E2EB2F0006B8D4C /* helpIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = helpIcon.png; path = Images/helpIcon.png; sourceTree = "<group>"; };
+		4A0D2AED1E2EB2F0006B8D4C /* plusIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = plusIcon.png; path = Images/plusIcon.png; sourceTree = "<group>"; };
+		4A0D2AF01E2EC704006B8D4C /* smallPlusIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = smallPlusIcon.png; path = Images/smallPlusIcon.png; sourceTree = "<group>"; };
+		4A0D2AF21E2EC76B006B8D4C /* backIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = backIcon.png; path = Images/backIcon.png; sourceTree = "<group>"; };
 		4A1E8A0E1E2C04AC000F8C94 /* SearchResult.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchResult.swift; sourceTree = "<group>"; };
-		4AD68E9F1E2BC67700327FFE /* Aware.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Aware.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		4AD68E9F1E2BC67700327FFE /* Bodhi.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Bodhi.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4AD68EA21E2BC67700327FFE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4AD68EA41E2BC67700327FFE /* ScannerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScannerViewController.swift; sourceTree = "<group>"; };
 		4AD68EA71E2BC67700327FFE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -37,10 +51,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4A0D2AE51E2EAC69006B8D4C /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				4A0D2AF21E2EC76B006B8D4C /* backIcon.png */,
+				4A0D2AF01E2EC704006B8D4C /* smallPlusIcon.png */,
+				4A0D2AEC1E2EB2F0006B8D4C /* helpIcon.png */,
+				4A0D2AED1E2EB2F0006B8D4C /* plusIcon.png */,
+				4A0D2AE61E2EAC75006B8D4C /* CameraGuides.png */,
+				4A0D2AE71E2EAC75006B8D4C /* GridIcon.png */,
+			);
+			name = Images;
+			sourceTree = "<group>";
+		};
 		4AD68E961E2BC67700327FFE = {
 			isa = PBXGroup;
 			children = (
-				4AD68EA11E2BC67700327FFE /* Aware */,
+				4AD68EA11E2BC67700327FFE /* Bodhi */,
 				4AD68EA01E2BC67700327FFE /* Products */,
 			);
 			sourceTree = "<group>";
@@ -48,14 +75,16 @@
 		4AD68EA01E2BC67700327FFE /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				4AD68E9F1E2BC67700327FFE /* Aware.app */,
+				4AD68E9F1E2BC67700327FFE /* Bodhi.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		4AD68EA11E2BC67700327FFE /* Aware */ = {
+		4AD68EA11E2BC67700327FFE /* Bodhi */ = {
 			isa = PBXGroup;
 			children = (
+				4A0D2AE51E2EAC69006B8D4C /* Images */,
+				4A0D2AEA1E2EAD3A006B8D4C /* InfoViewController.swift */,
 				4AD68EA21E2BC67700327FFE /* AppDelegate.swift */,
 				4AD68EA41E2BC67700327FFE /* ScannerViewController.swift */,
 				4AD68EA61E2BC67700327FFE /* Main.storyboard */,
@@ -64,15 +93,16 @@
 				4AD68EAE1E2BC67700327FFE /* Info.plist */,
 				4A1E8A0E1E2C04AC000F8C94 /* SearchResult.swift */,
 			);
+			name = Bodhi;
 			path = Aware;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		4AD68E9E1E2BC67700327FFE /* Aware */ = {
+		4AD68E9E1E2BC67700327FFE /* Bodhi */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 4AD68EB11E2BC67700327FFE /* Build configuration list for PBXNativeTarget "Aware" */;
+			buildConfigurationList = 4AD68EB11E2BC67700327FFE /* Build configuration list for PBXNativeTarget "Bodhi" */;
 			buildPhases = (
 				4AD68E9B1E2BC67700327FFE /* Sources */,
 				4AD68E9C1E2BC67700327FFE /* Frameworks */,
@@ -82,9 +112,9 @@
 			);
 			dependencies = (
 			);
-			name = Aware;
+			name = Bodhi;
 			productName = Aware;
-			productReference = 4AD68E9F1E2BC67700327FFE /* Aware.app */;
+			productReference = 4AD68E9F1E2BC67700327FFE /* Bodhi.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -104,7 +134,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 4AD68E9A1E2BC67700327FFE /* Build configuration list for PBXProject "Aware" */;
+			buildConfigurationList = 4AD68E9A1E2BC67700327FFE /* Build configuration list for PBXProject "Bodhi" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -117,7 +147,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				4AD68E9E1E2BC67700327FFE /* Aware */,
+				4AD68E9E1E2BC67700327FFE /* Bodhi */,
 			);
 		};
 /* End PBXProject section */
@@ -127,9 +157,15 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4A0D2AE81E2EAC75006B8D4C /* CameraGuides.png in Resources */,
 				4AD68EAD1E2BC67700327FFE /* LaunchScreen.storyboard in Resources */,
+				4A0D2AF11E2EC704006B8D4C /* smallPlusIcon.png in Resources */,
 				4AD68EAA1E2BC67700327FFE /* Assets.xcassets in Resources */,
+				4A0D2AE91E2EAC75006B8D4C /* GridIcon.png in Resources */,
+				4A0D2AEF1E2EB2F0006B8D4C /* plusIcon.png in Resources */,
 				4AD68EA81E2BC67700327FFE /* Main.storyboard in Resources */,
+				4A0D2AF31E2EC76B006B8D4C /* backIcon.png in Resources */,
+				4A0D2AEE1E2EB2F0006B8D4C /* helpIcon.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -142,6 +178,7 @@
 			files = (
 				4AD68EA51E2BC67700327FFE /* ScannerViewController.swift in Sources */,
 				4A1E8A0F1E2C04AC000F8C94 /* SearchResult.swift in Sources */,
+				4A0D2AEB1E2EAD3A006B8D4C /* InfoViewController.swift in Sources */,
 				4AD68EA31E2BC67700327FFE /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -266,7 +303,7 @@
 				DEVELOPMENT_TEAM = QWBTG48B5Y;
 				INFOPLIST_FILE = Aware/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = me.casvanderhoven.Aware;
+				PRODUCT_BUNDLE_IDENTIFIER = me.casvanderhoven.Bodhi;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};
@@ -279,7 +316,7 @@
 				DEVELOPMENT_TEAM = QWBTG48B5Y;
 				INFOPLIST_FILE = Aware/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = me.casvanderhoven.Aware;
+				PRODUCT_BUNDLE_IDENTIFIER = me.casvanderhoven.Bodhi;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};
@@ -288,7 +325,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		4AD68E9A1E2BC67700327FFE /* Build configuration list for PBXProject "Aware" */ = {
+		4AD68E9A1E2BC67700327FFE /* Build configuration list for PBXProject "Bodhi" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				4AD68EAF1E2BC67700327FFE /* Debug */,
@@ -297,7 +334,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		4AD68EB11E2BC67700327FFE /* Build configuration list for PBXNativeTarget "Aware" */ = {
+		4AD68EB11E2BC67700327FFE /* Build configuration list for PBXNativeTarget "Bodhi" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				4AD68EB21E2BC67700327FFE /* Debug */,
