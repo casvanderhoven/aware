@@ -19,10 +19,12 @@ class TableViewController: UITableViewController, AddCompanyViewControllerDelega
     }
     
     required init?(coder aDecoder: NSCoder) {
-    items = [CompanyItem]()
-    
-    super.init(coder: aDecoder)
-}
+        items = [CompanyItem]()
+        
+        super.init(coder: aDecoder)
+        print("Documents folder: \(documentsDirectory())")
+        loadBoycottListItems()
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -72,6 +74,8 @@ class TableViewController: UITableViewController, AddCompanyViewControllerDelega
 
         let indexPaths = [indexPath]
         tableView.deleteRows(at: indexPaths, with: .automatic)
+        
+        saveBoycottListItem()
     }
     
     func configureText(for cell: UITableViewCell, with item: CompanyItem) {
@@ -94,6 +98,8 @@ class TableViewController: UITableViewController, AddCompanyViewControllerDelega
         tableView.insertRows(at: indexPaths, with: .automatic)
         
         dismiss(animated: true, completion: nil)
+        
+        saveBoycottListItem()
     }
     
     func companyDetailViewController(_ controller: CompanyDetailViewController, didFinishEditing item: CompanyItem) {
@@ -104,6 +110,8 @@ class TableViewController: UITableViewController, AddCompanyViewControllerDelega
             }
         }
         dismiss(animated: true, completion: nil)
+        
+        saveBoycottListItem()
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -124,4 +132,36 @@ class TableViewController: UITableViewController, AddCompanyViewControllerDelega
             }
         }
     }
+    
+    // Functions for saving boycott list
+    func documentsDirectory() -> URL {
+        let paths = FileManager.default.urls(for: .documentDirectory,
+                                             in: .userDomainMask)
+        return paths[0]
+    }
+    
+    func dataFilePath() -> URL {
+        return documentsDirectory().appendingPathComponent("BoycottList.plist")
+    }
+    
+    func saveBoycottListItem() {
+        let data = NSMutableData()
+        let archiver = NSKeyedArchiver(forWritingWith: data)
+        archiver.encode(items, forKey: "BoycottList")
+        archiver.finishEncoding()
+        data.write(to: dataFilePath(), atomically: true)
+    }
+    
+    func loadBoycottListItems() {
+        let path = dataFilePath()
+        
+        if let data = try? Data(contentsOf: path) {
+            let unarchiver = NSKeyedUnarchiver(forReadingWith: data)
+            items = unarchiver.decodeObject(forKey: "BoycottList") as! [CompanyItem]
+            
+            unarchiver.finishDecoding()
+        }
+    }
+    
+    
 }
