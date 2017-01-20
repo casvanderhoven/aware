@@ -14,7 +14,7 @@ class ScannerViewController: UIViewController, AVCaptureMetadataOutputObjectsDel
     var captureSession:AVCaptureSession?
     var videoPreviewLayer:AVCaptureVideoPreviewLayer?
     var barCodeFrameView:UIView?
-    var searchResults: [SearchResult] = []
+    var companyItems: [CompanyItem] = []
     
     override var preferredStatusBarStyle: UIStatusBarStyle {
         return .lightContent
@@ -103,7 +103,7 @@ class ScannerViewController: UIViewController, AVCaptureMetadataOutputObjectsDel
     func captureOutput(_ captureOutput: AVCaptureOutput!, didOutputMetadataObjects metadataObjects: [Any]!, from connection: AVCaptureConnection!) {
         
         var decodedBarcode: String
-        var result: SearchResult
+        var result: CompanyItem
         
         // Check if the metadataObjects array is not nil and it contains at least one object.
         if metadataObjects == nil || metadataObjects.count == 0 {
@@ -173,12 +173,12 @@ class ScannerViewController: UIViewController, AVCaptureMetadataOutputObjectsDel
         }
     }
     
-    func parse(dictionary: [String: Any]) -> SearchResult {
+    func parse(dictionary: [String: Any]) -> CompanyItem {
         // Loop through the array elements in turn
         var companyInfo: [String: String] = [:]
         
         // Initialise SearchResult object
-        var searchResult: SearchResult!
+        var searchResult: CompanyItem!
 
         if let keyLookUp = dictionary["attributes"] as? [String: String]  {
     
@@ -194,23 +194,23 @@ class ScannerViewController: UIViewController, AVCaptureMetadataOutputObjectsDel
     }
 
     
-    func parse(brand dictionary: [String: Any]) -> SearchResult {
-        let searchResult = SearchResult()
+    func parse(brand dictionary: [String: Any]) -> CompanyItem {
+        let searchResult = CompanyItem()
         
         searchResult.brand = dictionary["Brand"] as! String
         
         return searchResult
     }
     
-    func noInfo() -> SearchResult {
-        let searchResult = SearchResult()
+    func noInfo() -> CompanyItem {
+        let searchResult = CompanyItem()
         
         searchResult.status = "This product is not yet in our database."
         
         return  searchResult
     }
     
-    func alert(searchResult: SearchResult) {
+    func alert(searchResult: CompanyItem) {
         
         let action = UIAlertAction(title: "OK", style: .default, handler:
             {

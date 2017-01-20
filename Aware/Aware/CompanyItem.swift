@@ -8,7 +8,8 @@
 
 import Foundation
 
-class SearchResult {
+class CompanyItem: NSObject {
     var status = ""
     var brand = ""
+    var text = ""
 }

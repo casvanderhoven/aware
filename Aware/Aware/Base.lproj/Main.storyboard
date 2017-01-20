@@ -26,7 +26,7 @@
                             <visualEffectView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jlU-Ni-sfW">
                                 <rect key="frame" x="0.0" y="452.5" width="375" height="150.5"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="2ZF-pj-lvb">
-                                    <rect key="frame" x="0.0" y="0.0" width="375" height="150.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="151"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 </view>
                                 <blurEffect style="light"/>
@@ -79,8 +79,11 @@
                                 <segue destination="Eg8-3p-X7j" kind="presentation" modalTransitionStyle="flipHorizontal" id="dxC-MB-h3L"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" image="smallPlusIcon.png" id="Gfg-Ii-INB">
+                        <barButtonItem key="rightBarButtonItem" image="editIcon.png" id="Gfg-Ii-INB">
                             <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <connections>
+                                <segue destination="d70-OW-jAy" kind="presentation" id="9FY-cN-jAU"/>
+                            </connections>
                         </barButtonItem>
                         <connections>
                             <outlet property="backBarButtonItem" destination="2KR-Zk-luF" id="HPs-Td-pfp"/>
@@ -115,11 +118,11 @@
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <attributedString key="attributedText">
                                     <fragment>
-                                        <mutableString key="content">Bodhi is a Buddhist term that means “awakening”. The aim of Bodhi is to raise awareness on the environmental and social impacts of corporations. It does so by making it easy for the user to know which company is behind a product. 
+                                        <string key="content">Bodhi is a Buddhist term that means “awakening”. The aim of Bodhi is to raise awareness on the environmental and social impacts of corporations. It does so by making it easy for the user to know which company is behind a product. 
 
-As of now, Bodhi’s functionality is limited to scanning products and checking whether the producer is on your boycot list. My goal is to extend the app so that it can provide sustainability scores for each company, and a boycot recommendation based on these scores.
+As of now, Bodhi’s functionality is limited to scanning products and checking whether the producer is on your boycott list. My goal is to extend the app so that it can provide sustainability scores for each company, and a boycott recommendation based on these scores.
 
-If you are enjoying this app, and would like to see these future plans implemented, you may support me with a (small) donation. This is completely optional!</mutableString>
+If you are enjoying this app, and would like to see these future plans implemented, you may support me with a (small) donation. This is completely optional!</string>
                                         <attributes>
                                             <font key="NSFont" metaFont="system" size="20"/>
                                             <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" lineSpacing="2" tighteningFactorForTruncation="0.0"/>
@@ -203,11 +206,173 @@ If you are enjoying this app, and would like to see these future plans implement
             </objects>
             <point key="canvasLocation" x="2057.971014492754" y="138.58695652173915"/>
         </scene>
+        <!--Boycott list-->
+        <scene sceneID="1I6-c5-DHt">
+            <objects>
+                <tableViewController id="8f9-dl-Lt4" customClass="TableViewController" customModule="Bodhi" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="eUz-p8-UZS">
+                        <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="companyItem" id="mxv-q5-emH">
+                                <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="left" tableViewCell="mxv-q5-emH" id="TPa-pD-8xL">
+                                    <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" tag="1000" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KYo-y4-rdg">
+                                            <rect key="frame" x="17" y="11" width="341" height="21"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <segue destination="0Ug-jQ-bpw" kind="presentation" identifier="EditCompany" id="evd-yG-PFf"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="8f9-dl-Lt4" id="wtq-ko-XeD"/>
+                            <outlet property="delegate" destination="8f9-dl-Lt4" id="ric-zX-Xjx"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Boycott list" id="37d-H9-sgE">
+                        <barButtonItem key="leftBarButtonItem" image="backIcon.png" id="iZL-Ez-UHz">
+                            <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                            <connections>
+                                <action selector="cancel" destination="8f9-dl-Lt4" id="AjW-yU-b5K"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" image="smallPlusIcon.png" id="YvR-ZI-1vJ">
+                            <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                            <connections>
+                                <segue destination="0Ug-jQ-bpw" kind="presentation" identifier="AddCompany" id="cyl-L1-Is8"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="backButton" destination="iZL-Ez-UHz" id="ht4-KH-36K"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="LgL-ci-UbG" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2056.8000000000002" y="930.58470764617698"/>
+        </scene>
+        <!--Add Company-->
+        <scene sceneID="6Ur-KW-dBV">
+            <objects>
+                <tableViewController id="0SV-lF-jfh" customClass="CompanyDetailViewController" customModule="Bodhi" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" id="pa9-AX-fui">
+                        <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                        <sections>
+                            <tableViewSection id="Xln-XS-VoE">
+                                <cells>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" id="BrP-hx-1NB">
+                                        <rect key="frame" x="0.0" y="35" width="375" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="BrP-hx-1NB" id="bVo-DE-6nD">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Company name" textAlignment="natural" adjustsFontSizeToFit="NO" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="4zG-EM-3lp">
+                                                    <rect key="frame" x="16" y="0.0" width="343" height="43"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <nil key="textColor"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <textInputTraits key="textInputTraits" autocapitalizationType="words" returnKeyType="done" enablesReturnKeyAutomatically="YES"/>
+                                                    <connections>
+                                                        <action selector="done" destination="0SV-lF-jfh" eventType="editingDidEndOnExit" id="fhY-ew-80F"/>
+                                                        <outlet property="delegate" destination="0SV-lF-jfh" id="iz4-g9-G3h"/>
+                                                    </connections>
+                                                </textField>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </cells>
+                            </tableViewSection>
+                        </sections>
+                        <connections>
+                            <outlet property="dataSource" destination="0SV-lF-jfh" id="O3O-cr-Akv"/>
+                            <outlet property="delegate" destination="0SV-lF-jfh" id="nx6-kR-Dd6"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Add Company" id="ZFl-FJ-eKK">
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="xx7-JQ-KNN">
+                            <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                            <connections>
+                                <action selector="cancel" destination="0SV-lF-jfh" id="wSf-LN-Owd"/>
+                            </connections>
+                        </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" enabled="NO" style="done" systemItem="done" id="AjO-T2-iya">
+                            <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                            <connections>
+                                <action selector="done" destination="0SV-lF-jfh" id="3Zr-7i-G5q"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="doneBarButton" destination="AjO-T2-iya" id="bKg-7i-fde"/>
+                        <outlet property="textField" destination="4zG-EM-3lp" id="Y3Z-ZW-bEz"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="BwK-cb-Xwm" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3903.1999999999998" y="930.58470764617698"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="g73-21-PjB">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="d70-OW-jAy" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="nfa-H8-EDv">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="8f9-dl-Lt4" kind="relationship" relationship="rootViewController" id="eQv-Ln-fcw"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="NCb-cW-TbY" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1074" y="931"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="NpG-DF-s9I">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="0Ug-jQ-bpw" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="LZy-j8-mYq">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="0SV-lF-jfh" kind="relationship" relationship="rootViewController" id="49f-Uh-CIu"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="h8t-37-IeR" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2964" y="930.58470764617698"/>
+        </scene>
     </scenes>
     <resources>
         <image name="CameraGuides.png" width="530" height="530"/>
         <image name="GridIcon.png" width="26" height="26"/>
         <image name="backIcon.png" width="26" height="23"/>
+        <image name="editIcon.png" width="29" height="29"/>
         <image name="smallPlusIcon.png" width="23" height="23"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="evd-yG-PFf"/>
+    </inferredMetricsTieBreakers>
 </document>

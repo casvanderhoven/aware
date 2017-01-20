@@ -14,7 +14,15 @@
 		4A0D2AEF1E2EB2F0006B8D4C /* plusIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 4A0D2AED1E2EB2F0006B8D4C /* plusIcon.png */; };
 		4A0D2AF11E2EC704006B8D4C /* smallPlusIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 4A0D2AF01E2EC704006B8D4C /* smallPlusIcon.png */; };
 		4A0D2AF31E2EC76B006B8D4C /* backIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 4A0D2AF21E2EC76B006B8D4C /* backIcon.png */; };
-		4A1E8A0F1E2C04AC000F8C94 /* SearchResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A1E8A0E1E2C04AC000F8C94 /* SearchResult.swift */; };
+		4A0D9E001E2F6191008F414C /* editIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 4A0D9DFF1E2F6191008F414C /* editIcon.png */; };
+		4A0D9E021E2F633E008F414C /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A0D9E011E2F633E008F414C /* TableViewController.swift */; };
+		4A0D9E041E2FA48E008F414C /* editIcon@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4A0D9E031E2FA48E008F414C /* editIcon@3x.png */; };
+		4A0D9E061E2FA569008F414C /* editIcon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4A0D9E051E2FA569008F414C /* editIcon@2x.png */; };
+		4A0D9E0A1E2FA607008F414C /* backIcon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4A0D9E071E2FA607008F414C /* backIcon@2x.png */; };
+		4A0D9E0B1E2FA607008F414C /* GridIcon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4A0D9E081E2FA607008F414C /* GridIcon@2x.png */; };
+		4A0D9E0C1E2FA607008F414C /* smallPlusIcon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4A0D9E091E2FA607008F414C /* smallPlusIcon@2x.png */; };
+		4A0D9E0E1E2FB77D008F414C /* AddCompanyViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A0D9E0D1E2FB77D008F414C /* AddCompanyViewController.swift */; };
+		4A1E8A0F1E2C04AC000F8C94 /* CompanyItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A1E8A0E1E2C04AC000F8C94 /* CompanyItem.swift */; };
 		4AD68EA31E2BC67700327FFE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AD68EA21E2BC67700327FFE /* AppDelegate.swift */; };
 		4AD68EA51E2BC67700327FFE /* ScannerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AD68EA41E2BC67700327FFE /* ScannerViewController.swift */; };
 		4AD68EA81E2BC67700327FFE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4AD68EA61E2BC67700327FFE /* Main.storyboard */; };
@@ -30,7 +38,15 @@
 		4A0D2AED1E2EB2F0006B8D4C /* plusIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = plusIcon.png; path = Images/plusIcon.png; sourceTree = "<group>"; };
 		4A0D2AF01E2EC704006B8D4C /* smallPlusIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = smallPlusIcon.png; path = Images/smallPlusIcon.png; sourceTree = "<group>"; };
 		4A0D2AF21E2EC76B006B8D4C /* backIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = backIcon.png; path = Images/backIcon.png; sourceTree = "<group>"; };
-		4A1E8A0E1E2C04AC000F8C94 /* SearchResult.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchResult.swift; sourceTree = "<group>"; };
+		4A0D9DFF1E2F6191008F414C /* editIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = editIcon.png; path = Images/editIcon.png; sourceTree = "<group>"; };
+		4A0D9E011E2F633E008F414C /* TableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = TableViewController.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
+		4A0D9E031E2FA48E008F414C /* editIcon@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "editIcon@3x.png"; path = "Images/editIcon@3x.png"; sourceTree = "<group>"; };
+		4A0D9E051E2FA569008F414C /* editIcon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "editIcon@2x.png"; path = "Images/editIcon@2x.png"; sourceTree = "<group>"; };
+		4A0D9E071E2FA607008F414C /* backIcon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "backIcon@2x.png"; path = "Images/backIcon@2x.png"; sourceTree = "<group>"; };
+		4A0D9E081E2FA607008F414C /* GridIcon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "GridIcon@2x.png"; path = "Images/GridIcon@2x.png"; sourceTree = "<group>"; };
+		4A0D9E091E2FA607008F414C /* smallPlusIcon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "smallPlusIcon@2x.png"; path = "Images/smallPlusIcon@2x.png"; sourceTree = "<group>"; };
+		4A0D9E0D1E2FB77D008F414C /* AddCompanyViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; lineEnding = 0; path = AddCompanyViewController.swift; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.swift; };
+		4A1E8A0E1E2C04AC000F8C94 /* CompanyItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CompanyItem.swift; sourceTree = "<group>"; };
 		4AD68E9F1E2BC67700327FFE /* Bodhi.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Bodhi.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4AD68EA21E2BC67700327FFE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4AD68EA41E2BC67700327FFE /* ScannerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScannerViewController.swift; sourceTree = "<group>"; };
@@ -54,6 +70,12 @@
 		4A0D2AE51E2EAC69006B8D4C /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				4A0D9E071E2FA607008F414C /* backIcon@2x.png */,
+				4A0D9E081E2FA607008F414C /* GridIcon@2x.png */,
+				4A0D9E091E2FA607008F414C /* smallPlusIcon@2x.png */,
+				4A0D9E051E2FA569008F414C /* editIcon@2x.png */,
+				4A0D9E031E2FA48E008F414C /* editIcon@3x.png */,
+				4A0D9DFF1E2F6191008F414C /* editIcon.png */,
 				4A0D2AF21E2EC76B006B8D4C /* backIcon.png */,
 				4A0D2AF01E2EC704006B8D4C /* smallPlusIcon.png */,
 				4A0D2AEC1E2EB2F0006B8D4C /* helpIcon.png */,
@@ -91,7 +113,9 @@
 				4AD68EA91E2BC67700327FFE /* Assets.xcassets */,
 				4AD68EAB1E2BC67700327FFE /* LaunchScreen.storyboard */,
 				4AD68EAE1E2BC67700327FFE /* Info.plist */,
-				4A1E8A0E1E2C04AC000F8C94 /* SearchResult.swift */,
+				4A1E8A0E1E2C04AC000F8C94 /* CompanyItem.swift */,
+				4A0D9E011E2F633E008F414C /* TableViewController.swift */,
+				4A0D9E0D1E2FB77D008F414C /* AddCompanyViewController.swift */,
 			);
 			name = Bodhi;
 			path = Aware;
@@ -158,14 +182,20 @@
 			buildActionMask = 2147483647;
 			files = (
 				4A0D2AE81E2EAC75006B8D4C /* CameraGuides.png in Resources */,
+				4A0D9E0A1E2FA607008F414C /* backIcon@2x.png in Resources */,
 				4AD68EAD1E2BC67700327FFE /* LaunchScreen.storyboard in Resources */,
 				4A0D2AF11E2EC704006B8D4C /* smallPlusIcon.png in Resources */,
+				4A0D9E041E2FA48E008F414C /* editIcon@3x.png in Resources */,
 				4AD68EAA1E2BC67700327FFE /* Assets.xcassets in Resources */,
+				4A0D9E0C1E2FA607008F414C /* smallPlusIcon@2x.png in Resources */,
 				4A0D2AE91E2EAC75006B8D4C /* GridIcon.png in Resources */,
+				4A0D9E0B1E2FA607008F414C /* GridIcon@2x.png in Resources */,
 				4A0D2AEF1E2EB2F0006B8D4C /* plusIcon.png in Resources */,
 				4AD68EA81E2BC67700327FFE /* Main.storyboard in Resources */,
 				4A0D2AF31E2EC76B006B8D4C /* backIcon.png in Resources */,
+				4A0D9E001E2F6191008F414C /* editIcon.png in Resources */,
 				4A0D2AEE1E2EB2F0006B8D4C /* helpIcon.png in Resources */,
+				4A0D9E061E2FA569008F414C /* editIcon@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -177,8 +207,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				4AD68EA51E2BC67700327FFE /* ScannerViewController.swift in Sources */,
-				4A1E8A0F1E2C04AC000F8C94 /* SearchResult.swift in Sources */,
+				4A1E8A0F1E2C04AC000F8C94 /* CompanyItem.swift in Sources */,
+				4A0D9E0E1E2FB77D008F414C /* AddCompanyViewController.swift in Sources */,
 				4A0D2AEB1E2EAD3A006B8D4C /* InfoViewController.swift in Sources */,
+				4A0D9E021E2F633E008F414C /* TableViewController.swift in Sources */,
 				4AD68EA31E2BC67700327FFE /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
